@@ -36,14 +36,13 @@ public class SocialMedia implements CheckPerson {
     Using the 3rd approach, create a branch for
      each of the following implementations:
 
-    Specify Search Criteria Code in a Local Class
-    Specify Search Criteria Code in an Anonymous Class
-    Specify Search Criteria Code with a Lambda Expression
-    Don't forget your test!
+    Specify Search Criteria Code in a Local Class -DONE
+    Specify Search Criteria Code in an Anonymous Class -DONE
+    Specify Search Criteria Code with a Lambda Expression - DONE
 
  */
 
-    public static void printPersonsOlderThan25 (List<Person> roster, CheckPerson tester){
+    public static void printPersonsMales (List<Person> roster, CheckPerson tester){
         for (Person p : roster){
             if (tester.test(p)){
                 p.printPerson();
@@ -51,7 +50,7 @@ public class SocialMedia implements CheckPerson {
         }
     }
 
-    public static void printAnonymousPersonsOlderThan25(CheckPerson tester){
+    public static void printAnonymousPersonMales(CheckPerson tester){
         List<Person> roster = new ArrayList<>(Arrays.asList(
                 new Person(),
                 new Person(),
@@ -67,7 +66,7 @@ public class SocialMedia implements CheckPerson {
 
     }
 
-    public static void printPersonsOlderThan25WithLambda(List<Person> roster, CheckPerson tester){
+    public static void printMalesWithLambda(List<Person> roster, CheckPerson tester){
         roster.forEach(p -> {
             if (tester.test(p)) {
                 p.printPerson();
@@ -79,6 +78,6 @@ public class SocialMedia implements CheckPerson {
 
     @Override
     public boolean test(Person p) {
-        return p.getAge() > 25;
+        return p.gender == Person.Sex.MALE;
     }
 }
